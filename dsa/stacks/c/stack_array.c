@@ -7,29 +7,38 @@
 #define EMPTY (-1)
 #define STACK_EMPTY INT_MIN
 
+struct stack{
+    int stack[STACK_LENGTH];
+    int top;
+};
+
+typedef struct stack Stack;
+
 // function prototypes
 bool push(int value, int *top, int *stack);
 int pop(int *top, int *stack);
 void hold_exit(void);
 
+
+//
 int main(int argc, char *argv[])
 {
-    int stack[STACK_LENGTH];
-    int top = EMPTY;
+    Stack mystack;
+    mystack.top = EMPTY;
     bool is_successful = false;
 
     for(int i = 0; i< 100; i++)
     {
-        is_successful = push(i, &top, stack);
+        is_successful = push(i, &mystack.top, mystack.stack);
         if(!is_successful)
         {
             break;
         }
     }
 
-    while (top != EMPTY)
+    while (mystack.top != EMPTY)
     {
-        printf("%d\n", pop(&top, stack));
+        printf("%d\n", pop(&mystack.top, mystack.stack));
     }
     hold_exit();
     return 0;
