@@ -19,7 +19,7 @@ int main()
 // Factorial Function
 int factorial(int number)
 {
-    if(number == 1 || number ==0 )  //Base Condition for recursive function
+    if(number == 1 || number == 0)  //Base Condition for recursive function
     {
         return 1;
     }
